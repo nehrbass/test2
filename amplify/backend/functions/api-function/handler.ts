@@ -1,11 +1,8 @@
-import * as fs from 'fs';
-import * as path from 'path'
 import {Amplify} from "aws-amplify";
 import type { APIGatewayProxyHandler } from "aws-lambda";
-
-// Define the path to the amplify_outputs.json file
-const configPath = path.join(__dirname, '../../../../amplify_outputs.json');
-const amplifyConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+// @ts-expect-error expected
+import amplifyConfig from "../../../config"
+// @ts-expect-error expected
 Amplify.configure(amplifyConfig);
 
 export const handler: APIGatewayProxyHandler = async (event) => {

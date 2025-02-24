@@ -21,7 +21,7 @@ const backend= defineBackend({
 const apiStack = backend.createStack("api-stack");
 
 const myRestApi = new RestApi(apiStack, "RestApi", {
-  restApiName: "paul-api-1",
+  restApiName: "paul-api-2",
   deploy: true,
   defaultCorsPreflightOptions: {
     allowOrigins: Cors.ALL_ORIGINS, // Restrict this to domains you trust
