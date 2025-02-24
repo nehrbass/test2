@@ -11,9 +11,11 @@ const configPath2 = path.join(__dirname, 'amplify_outputs.json');
 let amplifyConfig;
 
 if (fs.existsSync(configPath1)) {
+    console.error('configuratino found:'+configPath1);
     amplifyConfig = JSON.parse(fs.readFileSync(configPath1, 'utf-8'));
     Amplify.configure(amplifyConfig);
 } else if (fs.existsSync(configPath2)) {
+    console.error('configuratino found:'+configPath2);
     amplifyConfig = JSON.parse(fs.readFileSync(configPath2, 'utf-8'));
     Amplify.configure(amplifyConfig);
 }else {
