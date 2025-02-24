@@ -3,25 +3,9 @@ import * as path from 'path'
 import {Amplify} from "aws-amplify";
 import type { APIGatewayProxyHandler } from "aws-lambda";
 
-const directoryPath: string = path.join(__dirname, '.');
-
-fs.readdir(directoryPath, (err: NodeJS.ErrnoException | null, files: string[]) => {
-    if (err) {
-        console.error('Unable to scan directory:', err);
-        return;
-    }
-    files.forEach((file: string) => {
-        console.log(file);
-    });
-});
-
-console.log("Outputs File:", "Here is The Lambda");
-
-const configPath = path.join(__dirname, 'amplify_outputs.json');
+// Define the path to the amplify_outputs.json file
+const configPath = path.join(__dirname, '../../../../amplify_outputs.json');
 const amplifyConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
-
-console.log("Outputs File:", configPath);
-
 Amplify.configure(amplifyConfig);
 
 export const handler: APIGatewayProxyHandler = async (event) => {
